@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="ExifTool for Mere Mortals lab"
+     xmlns="http://www.topografix.com/GPX/1/1">
+  <trk>
+    <name>Ridge walk, invented for the lab</name>
+    <trkseg>
+      <trkpt lat="46.852300" lon="-121.760300">
+        <ele>1320.4</ele><time>2024-05-18T11:05:00Z</time>
+      </trkpt>
+      <trkpt lat="46.854100" lon="-121.757200">
+        <ele>1408.9</ele><time>2024-05-18T11:18:00Z</time>
+      </trkpt>
+      <trkpt lat="46.855860" lon="-121.754060">
+        <ele>1481.2</ele><time>2024-05-18T11:30:00Z</time>
+      </trkpt>
+      <trkpt lat="46.857400" lon="-121.751500">
+        <ele>1530.0</ele><time>2024-05-18T11:41:00Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

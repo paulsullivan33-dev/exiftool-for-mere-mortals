@@ -1,0 +1,35 @@
+$ exiftool -tagsFromFile shoebox/parade-01.jpg "-EXIF:DateTimeOriginal" "-ISO" shoebox/parade-02.jpg
+    1 image files updated
+
+$ exiftool -a -G -s -time:all -ISO -GPSPosition shoebox/parade-02.jpg
+[File]          FileModifyDate                  : 2026:10:21 19:31:28+00:00
+[File]          FileAccessDate                  : 2026:10:21 19:31:28+00:00
+[File]          FileInodeChangeDate             : 2026:10:21 19:31:28+00:00
+[EXIF]          DateTimeOriginal                : 2024:07:20 10:15:03
+[EXIF]          ISO                             : 320
+
+$ mkdir -p by-date
+
+$ exiftool -overwrite_original "-directory<by-date/\${DateTimeOriginal}" -d %Y-%m shoebox/trail-summit.jpg
+    1 directories created
+    1 image files updated
+
+$ ls by-date
+2024-05
+
+$ mkdir -p shiftall
+
+$ cp ../lab/shoebox/clock-wrong.jpg ../lab/shoebox/harbour-morning.jpg shiftall/
+
+$ exiftool "-AllDates+=0:02:00" shiftall
+    1 directories scanned
+    2 image files updated
+
+$ exiftool -s -s -s -DateTimeOriginal -r shiftall
+======== shiftall/clock-wrong.jpg
+2024:09:02 03:16:00
+======== shiftall/harbour-morning.jpg
+2023:06:14 07:44:18
+    1 directories scanned
+    2 image files read
+

@@ -1,0 +1,40 @@
+$ ls shoebox | grep birthday
+birthday-cake.jpg
+
+$ exiftool -Artist shoebox/birthday-cake.jpg
+Artist                          : A. Rivera
+
+$ exiftool "-Artist=J. Rivera" shoebox/birthday-cake.jpg
+    1 image files updated
+
+$ ls shoebox | grep birthday
+birthday-cake.jpg
+birthday-cake.jpg_original
+
+$ exiftool -Artist shoebox/birthday-cake.jpg
+Artist                          : J. Rivera
+
+$ exiftool -FileSize shoebox/birthday-cake.jpg shoebox/birthday-cake.jpg_original
+======== shoebox/birthday-cake.jpg
+File Size                       : 1343 bytes
+======== shoebox/birthday-cake.jpg_original
+File Size                       : 1343 bytes
+    2 image files read
+
+$ cp shoebox/birthday-cake.jpg work-copy.jpg
+
+$ exiftool -overwrite_original "-Artist=A. Rivera" work-copy.jpg
+    1 image files updated
+
+$ ls | grep work
+work-copy.jpg
+
+$ exiftool -Artist work-copy.jpg
+Artist                          : A. Rivera
+
+$ exiftool -overwrite_original "-Credit=Harbour Festival Committee" shoebox/parade-02.jpg
+    1 image files updated
+
+$ exiftool -Credit shoebox/parade-02.jpg
+Credit                          : Harbour Festival Committee
+

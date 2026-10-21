@@ -1,0 +1,15 @@
+$ exiftool -if 'not $DateTimeOriginal' -s -s -s -FileName -r shoebox
+======== shoebox/scan-1994.jpg
+scan-1994.jpg
+======== shoebox/parade-02.jpg
+parade-02.jpg
+    1 directories scanned
+    5 files failed condition
+    2 image files read
+
+$ exiftool -overwrite_original -tagsFromFile shoebox/parade-01.jpg "-all:all" shoebox/parade-02.jpg
+    1 image files updated
+
+$ exiftool -s -s -s -DateTimeOriginal shoebox/parade-02.jpg
+2024:07:20 10:15:03
+

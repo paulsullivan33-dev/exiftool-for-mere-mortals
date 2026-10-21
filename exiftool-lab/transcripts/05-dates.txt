@@ -1,0 +1,45 @@
+$ exiftool -time:all shoebox/clock-wrong.jpg
+File Modification Date/Time     : 2026:10:21 19:27:55+00:00
+File Access Date/Time           : 2026:10:21 19:27:55+00:00
+File Inode Change Date/Time     : 2026:10:21 19:27:55+00:00
+Modify Date                     : 2024:09:02 03:14:00
+Date/Time Original              : 2024:09:02 03:14:00
+Create Date                     : 2024:09:02 03:14:00
+
+$ exiftool "-AllDates+=1:05:00" shoebox/clock-wrong.jpg
+    1 image files updated
+
+$ exiftool -time:all shoebox/clock-wrong.jpg
+File Modification Date/Time     : 2026:10:21 19:27:57+00:00
+File Access Date/Time           : 2026:10:21 19:27:57+00:00
+File Inode Change Date/Time     : 2026:10:21 19:27:57+00:00
+Modify Date                     : 2024:09:02 04:19:00
+Date/Time Original              : 2024:09:02 04:19:00
+Create Date                     : 2024:09:02 04:19:00
+
+$ cp shoebox/clock-wrong.jpg day-shift.jpg
+
+$ exiftool "-DateTimeOriginal+=0:0:1 0:00:00" day-shift.jpg
+    1 image files updated
+
+$ exiftool -DateTimeOriginal day-shift.jpg
+Date/Time Original              : 2024:09:03 04:19:00
+
+$ exiftool -overwrite_original "-DateTimeOriginal=1994:07:15 12:00:00" shoebox/scan-1994.jpg
+    1 image files updated
+
+$ exiftool -DateTimeOriginal shoebox/scan-1994.jpg
+Date/Time Original              : 1994:07:15 12:00:00
+
+$ cp shoebox/harbour-morning.jpg touched.jpg
+
+$ touch -d "2020-01-01 00:00:00" touched.jpg
+
+$ exiftool -time:all touched.jpg
+File Modification Date/Time     : 2020:01:01 00:00:00+00:00
+File Access Date/Time           : 2020:01:01 00:00:00+00:00
+File Inode Change Date/Time     : 2026:10:21 19:27:58+00:00
+Modify Date                     : 2023:06:14 07:42:18
+Date/Time Original              : 2023:06:14 07:42:18
+Create Date                     : 2023:06:14 07:42:18
+

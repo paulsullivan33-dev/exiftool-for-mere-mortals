@@ -1,0 +1,89 @@
+The shoebox, specimen by specimen
+==================================
+
+Built by build-shoebox.sh. Seven JPEGs and
+one GPX track. The pictures are minimal
+synthesised JPEGs (flat colours, no real
+scene); the metadata is the specimen, and
+it was written by ExifTool itself in the
+builder's single -overwrite_original pass
+per file. Names, people, and dates are
+invented; the coordinates are public
+places, never anyone's home.
+
+harbour-morning.jpg
+  120x90. Canon EOS 80D. Full EXIF: taken
+  2023:06:14 07:42:18 (all three EXIF dates
+  agree), ISO 200, f/8, 1/250, 24 mm.
+  Artist "A. Rivera"; ImageDescription
+  "Fishing boats in the harbour at first
+  light". No GPS. The guide's reference
+  photograph: chapters 1, 2, 3, 10 read and
+  write it.
+
+birthday-cake.jpg
+  96x96. iPhone 12, Software 17.3. Taken
+  2024:02:09 19:05:41; ISO 1250, f/1.6.
+  Artist "A. Rivera", a UserComment, and
+  GPS at 47.6062, -122.3321 (the Seattle
+  waterfront) with altitude 12 m. The
+  privacy specimen: chapters 3, 8, and 10
+  copy it before touching it, and chapter
+  8 strips the copies.
+
+clock-wrong.jpg
+  100x75. Nikon D3500. All three EXIF
+  dates read 2024:09:02 03:14:00; the
+  story in its ImageDescription is that
+  the camera clock was still on home time,
+  1 hour 05 minutes behind the real
+  moment. Chapter 5 shifts it to 04:19.
+  Also chapter 6's collision pair (two
+  copies, one date) and chapter 13's
+  locked-file fixture.
+
+trail-summit.jpg
+  100x75. Sony ILCE-6400. Taken
+  2024:05:18 11:23:40, ISO 100, f/9,
+  1/320, 18 mm, with a description — and
+  no GPS at all. Chapter 7 geotags it
+  from trail.gpx; chapter 6 files it
+  under by-date/2024-05.
+
+scan-1994.jpg
+  88x110. A "scan": its only metadata is
+  EXIF Software "Flatbed Scan Utility
+  2.1" and an XMP Description, "Scanned
+  from a print, summer 1994". No EXIF
+  dates of any kind. Chapter 1's
+  near-empty read; chapter 5 sets its
+  DateTimeOriginal outright; chapter 9's
+  -if audit finds it.
+
+parade-01.jpg
+  120x84. Canon EOS 80D, taken
+  2024:07:20 10:15:03, ISO 320, f/6.3,
+  1/500, GPS at 47.6092, -122.3410, with
+  the description both frames share. The
+  donor of chapter 4.
+
+parade-02.jpg
+  104x78. The same moment after a
+  diary-dropping editor: only the shared
+  ImageDescription (plus the structural
+  boilerplate any JPEG write leaves).
+  No date, camera, exposure, or position.
+  Chapter 4's patient; chapter 9's second
+  dateless specimen.
+
+trail.gpx
+  Hand-written GPX 1.1, four trackpoints
+  near 46.85, -121.76 (a national-park
+  ridge), 2024-05-18 from 11:05:00Z to
+  11:41:00Z, elevations 1320.4 to
+  1530.0 m. The trail photo's 11:23:40
+  falls between the second and third
+  points — 47.2% of the way — so chapter
+  7's interpolated position can be
+  checked by hand. The builder copies
+  this file into the shoebox unchanged.

@@ -1,0 +1,7 @@
+$ ffprobe -hide_banner shoebox/harbour-morning.jpg
+Input #0, jpeg_pipe, from 'shoebox/harbour-morning.jpg':
+  Duration: N/A, bitrate: N/A
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 120x90 [SAR 1:1 DAR 4:3], 25 fps, 25 tbr, 25 tbn
+
+$ which exiv2 identify mediainfo
+

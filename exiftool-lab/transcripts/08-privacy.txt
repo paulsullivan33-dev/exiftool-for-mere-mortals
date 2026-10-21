@@ -1,0 +1,52 @@
+$ cp shoebox/birthday-cake.jpg shared.jpg
+
+$ exiftool -GPSPosition -Artist -UserComment shared.jpg
+GPS Position                    : 47 deg 36' 22.32", 122 deg 19' 55.56"
+Artist                          : A. Rivera
+User Comment                    : Blowing out the candles, February 2024
+
+$ exiftool -a -G -s shared.jpg | wc -l
+52
+
+$ exiftool "-GPS*=" shared.jpg
+    1 image files updated
+
+$ exiftool -GPSPosition shared.jpg
+
+$ exiftool -Artist -UserComment shared.jpg
+Artist                          : A. Rivera
+User Comment                    : Blowing out the candles, February 2024
+
+$ cp shoebox/birthday-cake.jpg stripped.jpg
+
+$ exiftool -all= stripped.jpg
+    1 image files updated
+
+$ exiftool stripped.jpg
+ExifTool Version Number         : 13.55
+File Name                       : stripped.jpg
+Directory                       : .
+File Size                       : 755 bytes
+File Modification Date/Time     : 2026:10:21 19:28:57+00:00
+File Access Date/Time           : 2026:10:21 19:28:57+00:00
+File Inode Change Date/Time     : 2026:10:21 19:28:57+00:00
+File Permissions                : -rw-rw----
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+Image Width                     : 96
+Image Height                    : 96
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 96x96
+Megapixels                      : 0.009
+
+$ exiftool -s -s -s -ImageSize stripped.jpg
+96x96
+
+$ ls -la stripped.jpg shared.jpg
+-rw-rw---- 1 root nogroup 1221 Oct 21 19:28 shared.jpg
+-rw-rw---- 1 root nogroup  755 Oct 21 19:28 stripped.jpg
+

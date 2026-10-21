@@ -1,0 +1,26 @@
+site_name: ExifTool for Mere Mortals
+site_description: Plain-language reading and writing of the metadata inside photos and other files with ExifTool, practised on a specimen shoebox of invented photos.
+site_url: https://paulsullivan33-dev.github.io/exiftool-for-mere-mortals/
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What ExifTool Is: what-exiftool-is.md
+  - Reading Tags: reading-tags.md
+  - Writing Tags Safely: writing-tags-safely.md
+  - Copying Tags: copying-tags.md
+  - Fixing Dates: fixing-dates.md
+  - Renaming from Metadata: renaming-from-metadata.md
+  - Geotagging: geotagging.md
+  - Privacy and Stripping: privacy-and-stripping.md
+  - Batches and Output: batches-and-output.md
+  - Config and Shortcuts: config-and-shortcuts.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

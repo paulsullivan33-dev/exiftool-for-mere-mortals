@@ -1,0 +1,33 @@
+$ exiftool "-Nonsense=5" shoebox/harbour-morning.jpg
+Warning: Tag 'Nonsense' is not defined
+Nothing to do.
+
+$ echo "plain text" > note.txt
+
+$ exiftool "-Artist=Someone" note.txt
+Error: Writing of TXT files is not yet supported - note.txt
+    0 image files updated
+    1 files weren't updated due to errors
+
+$ chmod 444 shoebox/clock-wrong.jpg
+
+$ exiftool "-Artist=Someone" shoebox/clock-wrong.jpg
+    1 image files updated
+
+$ chmod 644 shoebox/clock-wrong.jpg
+
+$ exiftool -Artist= shoebox/harbour-morning.jpg
+    1 image files updated
+
+$ exiftool -Artist shoebox/harbour-morning.jpg
+
+
+$ su -s /bin/sh nobody -c 'exiftool "-Artist=Someone" locked/clock-wrong.jpg'
+Error: Error creating file: locked/clock-wrong.jpg_exiftool_tmp - locked/clock-wrong.jpg
+    0 image files updated
+    1 files weren't updated due to errors
+[exit 1; run as user nobody against a mode-444 file in a directory
+nobody cannot write — the /tmp fixture described in criteria.md.
+As root on the build machine the same write succeeded despite
+mode 444, because ExifTool replaces the file by rename and root
+ignores the bits; see the main transcript above.]

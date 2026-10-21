@@ -1,0 +1,69 @@
+$ exiftool -ver
+13.55
+
+$ exiftool shoebox/scan-1994.jpg
+ExifTool Version Number         : 13.55
+File Name                       : scan-1994.jpg
+Directory                       : shoebox
+File Size                       : 3.9 kB
+File Modification Date/Time     : 2026:10:21 19:27:20+00:00
+File Access Date/Time           : 2026:10:21 19:27:20+00:00
+File Inode Change Date/Time     : 2026:10:21 19:27:20+00:00
+File Permissions                : -rw-rw----
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Exif Byte Order                 : Big-endian (Motorola, MM)
+X Resolution                    : 1
+Y Resolution                    : 1
+Resolution Unit                 : None
+Software                        : Flatbed Scan Utility 2.1
+Y Cb Cr Positioning             : Centered
+XMP Toolkit                     : Image::ExifTool 13.55
+Description                     : Scanned from a print, summer 1994
+Image Width                     : 88
+Image Height                    : 110
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 88x110
+Megapixels                      : 0.010
+
+$ exiftool -DateTimeOriginal -Model -ISO shoebox/harbour-morning.jpg
+Date/Time Original              : 2023:06:14 07:42:18
+Camera Model Name               : Canon EOS 80D
+ISO                             : 200
+
+$ exiftool -s -DateTimeOriginal shoebox/harbour-morning.jpg
+DateTimeOriginal                : 2023:06:14 07:42:18
+
+$ exiftool -s -s -DateTimeOriginal shoebox/harbour-morning.jpg
+DateTimeOriginal: 2023:06:14 07:42:18
+
+$ exiftool -s -s -s -DateTimeOriginal shoebox/harbour-morning.jpg
+2023:06:14 07:42:18
+
+$ exiftool -XResolution shoebox/birthday-cake.jpg
+X Resolution                    : 1
+
+$ exiftool -a -XResolution shoebox/birthday-cake.jpg
+X Resolution                    : 1
+X Resolution                    : 1
+
+$ exiftool -a -G -XResolution shoebox/birthday-cake.jpg
+[JFIF]          X Resolution                    : 1
+[EXIF]          X Resolution                    : 1
+
+$ exiftool "-EXIF:DateTimeOriginal" shoebox/harbour-morning.jpg
+Date/Time Original              : 2023:06:14 07:42:18
+
+$ exiftool -time:all shoebox/clock-wrong.jpg
+File Modification Date/Time     : 2026:10:21 19:27:20+00:00
+File Access Date/Time           : 2026:10:21 19:27:20+00:00
+File Inode Change Date/Time     : 2026:10:21 19:27:20+00:00
+Modify Date                     : 2024:09:02 03:14:00
+Date/Time Original              : 2024:09:02 03:14:00
+Create Date                     : 2024:09:02 03:14:00
+

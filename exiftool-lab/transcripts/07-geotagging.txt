@@ -1,0 +1,25 @@
+$ exiftool -GPSPosition shoebox/trail-summit.jpg
+
+$ exiftool -geotag shoebox/trail.gpx shoebox/trail-summit.jpg
+    1 image files updated
+
+$ exiftool -a -G -s -GPS:all shoebox/trail-summit.jpg
+[EXIF]          GPSVersionID                    : 2.3.0.0
+[EXIF]          GPSLatitudeRef                  : North
+[EXIF]          GPSLatitude                     : 46 deg 51' 17.75"
+[EXIF]          GPSLongitudeRef                 : West
+[EXIF]          GPSLongitude                    : 121 deg 45' 20.58"
+[EXIF]          GPSAltitudeRef                  : Above Sea Level
+[EXIF]          GPSAltitude                     : 1443.041667 m
+[EXIF]          GPSTimeStamp                    : 11:23:40
+[EXIF]          GPSDateStamp                    : 2024:05:18
+
+$ exiftool -GPSPosition shoebox/trail-summit.jpg
+GPS Position                    : 46 deg 51' 17.75" N, 121 deg 45' 20.58" W
+
+$ exiftool -geotag shoebox/trail.gpx shoebox/harbour-morning.jpg
+Warning: Time is too far before track in File:Geotime (ValueConvInv) - shoebox/harbour-morning.jpg
+Warning: No writable tags set from shoebox/harbour-morning.jpg
+    0 image files updated
+    1 image files unchanged
+

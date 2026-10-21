@@ -1,0 +1,15 @@
+$ cp ../lab/shoebox/clock-wrong.jpg first.jpg
+
+$ cp ../lab/shoebox/clock-wrong.jpg second.jpg
+
+$ exiftool "-filename<one-name.jpg" first.jpg second.jpg
+Warning: No writable tags set from first.jpg
+Warning: Invalid tag name 'one-name.jpg'. Use '=' not '<' to assign a tag value - first.jpg
+Warning: No writable tags set from second.jpg
+    0 image files updated
+    2 image files unchanged
+
+$ ls
+first.jpg
+second.jpg
+

@@ -1,0 +1,58 @@
+$ echo "a note, not a photo" > shoebox/notes.txt
+
+$ exiftool -r -s -s -s -DateTimeOriginal shoebox
+======== shoebox/harbour-morning.jpg
+2023:06:14 07:42:18
+======== shoebox/birthday-cake.jpg
+2024:02:09 19:05:41
+======== shoebox/clock-wrong.jpg
+2024:09:02 03:14:00
+======== shoebox/trail-summit.jpg
+2024:05:18 11:23:40
+======== shoebox/scan-1994.jpg
+======== shoebox/parade-01.jpg
+2024:07:20 10:15:03
+======== shoebox/parade-02.jpg
+======== shoebox/notes.txt
+    1 directories scanned
+    8 image files read
+
+$ exiftool -r -ext jpg -s -s -s -DateTimeOriginal shoebox
+======== shoebox/harbour-morning.jpg
+2023:06:14 07:42:18
+======== shoebox/birthday-cake.jpg
+2024:02:09 19:05:41
+======== shoebox/clock-wrong.jpg
+2024:09:02 03:14:00
+======== shoebox/trail-summit.jpg
+2024:05:18 11:23:40
+======== shoebox/scan-1994.jpg
+======== shoebox/parade-01.jpg
+2024:07:20 10:15:03
+======== shoebox/parade-02.jpg
+    1 directories scanned
+    7 image files read
+
+$ exiftool -T -FileName -DateTimeOriginal -Model shoebox
+harbour-morning.jpg	2023:06:14 07:42:18	Canon EOS 80D
+birthday-cake.jpg	2024:02:09 19:05:41	iPhone 12
+clock-wrong.jpg	2024:09:02 03:14:00	NIKON D3500
+trail-summit.jpg	2024:05:18 11:23:40	ILCE-6400
+scan-1994.jpg	-	-
+parade-01.jpg	2024:07:20 10:15:03	Canon EOS 80D
+parade-02.jpg	-	-
+notes.txt	-	-
+
+$ exiftool -json -FileName -DateTimeOriginal shoebox/parade-01.jpg shoebox/trail-summit.jpg
+    2 image files read
+[{
+  "SourceFile": "shoebox/parade-01.jpg",
+  "FileName": "parade-01.jpg",
+  "DateTimeOriginal": "2024:07:20 10:15:03"
+},
+{
+  "SourceFile": "shoebox/trail-summit.jpg",
+  "FileName": "trail-summit.jpg",
+  "DateTimeOriginal": "2024:05:18 11:23:40"
+}]
+

@@ -1,0 +1,13 @@
+$ exiftool -config exiftool.config -WhenWhere shoebox/birthday-cake.jpg
+Date/Time Original              : 2024:02:09 19:05:41
+GPS Position                    : 47 deg 36' 22.32", 122 deg 19' 55.56"
+Camera Model Name               : iPhone 12
+
+$ mkdir -p fakehome
+
+$ cp exiftool.config fakehome/.ExifTool_config
+
+$ HOME=$PWD/fakehome exiftool -WhenWhere shoebox/harbour-morning.jpg
+Date/Time Original              : 2023:06:14 07:42:18
+Camera Model Name               : Canon EOS 80D
+

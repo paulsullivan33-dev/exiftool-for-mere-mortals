@@ -1,0 +1,49 @@
+$ exiftool -a -G -s shoebox/parade-02.jpg
+[ExifTool]      ExifToolVersion                 : 13.55
+[File]          FileName                        : parade-02.jpg
+[File]          Directory                       : shoebox
+[File]          FileSize                        : 919 bytes
+[File]          FileModifyDate                  : 2026:10:21 19:27:55+00:00
+[File]          FileAccessDate                  : 2026:10:21 19:27:55+00:00
+[File]          FileInodeChangeDate             : 2026:10:21 19:27:55+00:00
+[File]          FilePermissions                 : -rw-rw----
+[File]          FileType                        : JPEG
+[File]          FileTypeExtension               : jpg
+[File]          MIMEType                        : image/jpeg
+[File]          ExifByteOrder                   : Big-endian (Motorola, MM)
+[File]          ImageWidth                      : 104
+[File]          ImageHeight                     : 78
+[File]          EncodingProcess                 : Baseline DCT, Huffman coding
+[File]          BitsPerSample                   : 8
+[File]          ColorComponents                 : 3
+[File]          YCbCrSubSampling                : YCbCr4:2:0 (2 2)
+[JFIF]          JFIFVersion                     : 1.01
+[JFIF]          ResolutionUnit                  : None
+[JFIF]          XResolution                     : 1
+[JFIF]          YResolution                     : 1
+[EXIF]          ImageDescription                : Street parade, the brass band turning the corner
+[EXIF]          XResolution                     : 1
+[EXIF]          YResolution                     : 1
+[EXIF]          ResolutionUnit                  : None
+[EXIF]          YCbCrPositioning                : Centered
+[Composite]     ImageSize                       : 104x78
+[Composite]     Megapixels                      : 0.008
+
+$ exiftool -tagsFromFile shoebox/parade-01.jpg shoebox/parade-02.jpg
+    1 image files updated
+
+$ exiftool -a -G -s -time:all -ISO -GPSPosition shoebox/parade-02.jpg
+[File]          FileModifyDate                  : 2026:10:21 19:27:56+00:00
+[File]          FileAccessDate                  : 2026:10:21 19:27:56+00:00
+[File]          FileInodeChangeDate             : 2026:10:21 19:27:56+00:00
+[EXIF]          ModifyDate                      : 2024:07:20 10:15:03
+[EXIF]          DateTimeOriginal                : 2024:07:20 10:15:03
+[EXIF]          CreateDate                      : 2024:07:20 10:15:03
+[EXIF]          ISO                             : 320
+[Composite]     GPSPosition                     : 47 deg 36' 33.12", 122 deg 20' 27.60"
+
+$ ls shoebox | grep parade
+parade-01.jpg
+parade-02.jpg
+parade-02.jpg_original
+

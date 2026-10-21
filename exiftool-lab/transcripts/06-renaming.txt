@@ -1,0 +1,34 @@
+$ exiftool -d %Y-%m-%d_%H-%M-%S "-testname<harbour-\${DateTimeOriginal}-%f.%e" shoebox/harbour-morning.jpg
+'shoebox/harbour-morning.jpg' --> 'shoebox/harbour-2023-06-14_07-42-18-harbour-morning.jpg'
+    0 image files updated
+    1 image files unchanged
+
+$ mkdir -p renamed
+
+$ cp shoebox/*.jpg renamed/
+
+$ exiftool -d %Y-%m-%d_%H-%M-%S "-filename<\${DateTimeOriginal}-%f.%e" renamed
+Warning: [minor] Tag 'DateTimeOriginal' not defined - renamed/parade-02.jpg
+Warning: No writable tags set from renamed/parade-02.jpg
+Warning: [minor] Tag 'DateTimeOriginal' not defined - renamed/scan-1994.jpg
+Warning: No writable tags set from renamed/scan-1994.jpg
+    1 directories scanned
+    5 image files updated
+    2 image files unchanged
+
+$ ls renamed
+2023-06-14_07-42-18-harbour-morning.jpg
+2024-02-09_19-05-41-birthday-cake.jpg
+2024-05-18_11-23-40-trail-summit.jpg
+2024-07-20_10-15-03-parade-01.jpg
+2024-09-02_03-14-00-clock-wrong.jpg
+parade-02.jpg
+scan-1994.jpg
+
+$ exiftool -tagsFromFile renamed/2024-07-20_10-15-03-parade-01.jpg -overwrite_original renamed/2024-07-20_10-15-03-parade-02.jpg 2>/dev/null || cp shoebox/parade-02.jpg renamed/dup.jpg
+    0 image files updated
+    1 files weren't updated due to errors
+
+$ exiftool -overwrite_original -tagsFromFile shoebox/parade-01.jpg renamed/scan-1994.jpg
+    1 image files updated
+

@@ -1,0 +1,87 @@
+Chapter commands, in order
+==========================
+
+The commands as the chapters run them, on
+the lab in its default place (./shoebox,
+built by build-shoebox.sh). Chapters work
+on fresh copies of the shoebox; this list
+assumes you do the same — rebuild between
+chapters when a chapter's writes would get
+in the next one's way.
+
+Ch. 1  What ExifTool Is
+
+  exiftool -ver
+  exiftool shoebox/harbour-morning.jpg
+  exiftool shoebox/scan-1994.jpg
+
+Ch. 2  Reading Tags
+
+  exiftool -DateTimeOriginal -Model -ISO shoebox/harbour-morning.jpg
+  exiftool -s -DateTimeOriginal shoebox/harbour-morning.jpg
+  exiftool -s -s -DateTimeOriginal shoebox/harbour-morning.jpg
+  exiftool -s -s -s -DateTimeOriginal shoebox/harbour-morning.jpg
+  exiftool -XResolution shoebox/birthday-cake.jpg
+  exiftool -a -XResolution shoebox/birthday-cake.jpg
+  exiftool -a -G -XResolution shoebox/birthday-cake.jpg
+  exiftool "-EXIF:DateTimeOriginal" shoebox/harbour-morning.jpg
+  exiftool -time:all shoebox/clock-wrong.jpg
+
+Ch. 3  Writing Tags Safely
+
+  exiftool "-Artist=J. Rivera" shoebox/birthday-cake.jpg
+  ls shoebox | grep birthday
+  cp shoebox/birthday-cake.jpg work-copy.jpg
+  exiftool -overwrite_original "-Artist=A. Rivera" work-copy.jpg
+  exiftool -overwrite_original "-Credit=Harbour Festival Committee" shoebox/parade-02.jpg
+  exiftool -Artist= shoebox/harbour-morning.jpg
+
+Ch. 4  Copying Tags
+
+  exiftool -a -G -s shoebox/parade-02.jpg
+  exiftool -tagsFromFile shoebox/parade-01.jpg shoebox/parade-02.jpg
+  exiftool -tagsFromFile shoebox/parade-01.jpg "-EXIF:DateTimeOriginal" "-ISO" shoebox/parade-02.jpg
+
+Ch. 5  Fixing Dates
+
+  exiftool -time:all shoebox/clock-wrong.jpg
+  exiftool "-AllDates+=1:05:00" shoebox/clock-wrong.jpg
+  exiftool "-DateTimeOriginal+=0:0:1 0:00:00" day-shift.jpg
+  exiftool -overwrite_original "-DateTimeOriginal=1994:07:15 12:00:00" shoebox/scan-1994.jpg
+  touch -d "2020-01-01 00:00:00" touched.jpg
+
+Ch. 6  Renaming from Metadata
+
+  exiftool -d %Y-%m-%d_%H-%M-%S "-testname<harbour-\${DateTimeOriginal}-%f.%e" shoebox/harbour-morning.jpg
+  exiftool -d %Y-%m-%d_%H-%M-%S "-filename<\${DateTimeOriginal}-%f.%e" renamed
+  exiftool -d %Y-%m-%d "-filename<\${DateTimeOriginal}.%e" first.jpg second.jpg
+  exiftool -d %Y-%m-%d "-filename<\${DateTimeOriginal}%+c.%e" second.jpg
+  exiftool -overwrite_original "-directory<by-date/\${DateTimeOriginal}" -d %Y-%m shoebox/trail-summit.jpg
+
+Ch. 7  Geotagging
+
+  exiftool -GPSPosition shoebox/trail-summit.jpg
+  exiftool -geotag shoebox/trail.gpx shoebox/trail-summit.jpg
+  exiftool -a -G -s -GPS:all shoebox/trail-summit.jpg
+  exiftool -geotag shoebox/trail.gpx shoebox/harbour-morning.jpg
+
+Ch. 8  Privacy and Stripping
+
+  exiftool -a -G -s shared.jpg | wc -l
+  exiftool "-GPS*=" shared.jpg
+  exiftool -GPSPosition shared.jpg
+  exiftool -all= stripped.jpg
+  exiftool -s -s -s -ImageSize stripped.jpg
+
+Ch. 9  Batches and Output
+
+  exiftool -r -s -s -s -DateTimeOriginal shoebox
+  exiftool -r -ext jpg -s -s -s -DateTimeOriginal shoebox
+  exiftool -T -FileName -DateTimeOriginal -Model shoebox
+  exiftool -json -FileName -DateTimeOriginal shoebox/parade-01.jpg shoebox/trail-summit.jpg
+  exiftool -if 'not $DateTimeOriginal' -s -s -s -FileName -r shoebox
+
+Ch. 10  Config and Shortcuts
+
+  exiftool -config exiftool.config -WhenWhere shoebox/birthday-cake.jpg
+  HOME=$PWD/fakehome exiftool -WhenWhere shoebox/harbour-morning.jpg

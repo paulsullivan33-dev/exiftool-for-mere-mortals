@@ -1,0 +1,20 @@
+$ cp ../lab/shoebox/clock-wrong.jpg first.jpg
+
+$ cp ../lab/shoebox/clock-wrong.jpg second.jpg
+
+$ exiftool -d %Y-%m-%d "-filename<\${DateTimeOriginal}.%e" first.jpg second.jpg
+Error: '2024-09-02.jpg' already exists - second.jpg
+    1 image files updated
+    1 files weren't updated due to errors
+
+$ ls
+2024-09-02.jpg
+second.jpg
+
+$ exiftool -d %Y-%m-%d "-filename<\${DateTimeOriginal}%+c.%e" second.jpg
+    1 image files updated
+
+$ ls
+2024-09-02.jpg
+2024-09-02_1.jpg
+
